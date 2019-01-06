@@ -59,9 +59,3 @@ def find_attractions(destination, interests):
 
   return attractions_with_interest
 
-
-
-
-
-
-
