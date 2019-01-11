@@ -95,3 +95,5 @@ load_attractions()
 test_traveler = ['Sam King', 'Los Angeles, USA', ['art']]
 
 print(get_attractions_for_traveler(test_traveler))
+
+# Program prints 'Hi Sam King, we think you'll like these places around Los Angeles, USA: LACMA Art Museum.'
