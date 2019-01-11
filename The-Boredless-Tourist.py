@@ -3,11 +3,20 @@
 # Tourism recommendation engine built for CodeCademy.
 # My first Python program.
 #
+# Program lacks a GUI as it was built as an exercise,
+# but its functionality can be demonstrated using the
+# test travellers at the end of the script.
+#
+# The program takes a traveler as a list containing
+# ['name', 'location', ['interests', 'more interests']]
+#
+# It will then check to see if any stored locations at the
+# traveler's destination match the traveler's interests, and
+# prints them.
+#
 # ---------------------------------------------------
 
 destinations = ['Paris, France', 'Shanghai, China', 'Los Angeles, USA', 'Sao Paulo, Brazil', 'Cairo, Egypt']
-
-test_traveler = ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
 
 attractions = []
 for entry in destinations:
@@ -31,17 +40,18 @@ def add_attraction(destination, attraction):
   except ValueError:
     return
 
-add_attraction('Los Angeles, USA', ['Venice Beach', ['beach']])
-add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
-add_attraction("Paris, France", ["the Arc de Triomphe", ["historical site", "monument"]])
-add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historical site"]])
-add_attraction("Shanghai, China", ["Yuz Museum", ["art", "museum"]])
-add_attraction("Shanghai, China", ["Oriental Pearl Tower", ["skyscraper", "viewing deck"]])
-add_attraction("Los Angeles, USA", ["LACMA", ["art", "museum"]])
-add_attraction("São Paulo, Brazil", ["São Paulo Zoo", ["zoo"]])
-add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]])
-add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
-add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
+def load_attractions():
+  add_attraction('Los Angeles, USA', ['Venice Beach', ['beach']])
+  add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
+  add_attraction("Paris, France", ["the Arc de Triomphe", ["historical site", "monument"]])
+  add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historical site"]])
+  add_attraction("Shanghai, China", ["Yuz Museum", ["art", "museum"]])
+  add_attraction("Shanghai, China", ["Oriental Pearl Tower", ["skyscraper", "viewing deck"]])
+  add_attraction("Los Angeles, USA", ["LACMA Art Museum", ["art", "museum"]])
+  add_attraction("São Paulo, Brazil", ["São Paulo Zoo", ["zoo"]])
+  add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]])
+  add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
+  add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
 def find_attractions(destination, interests):
   attractions_with_interest = []
@@ -78,7 +88,10 @@ def get_attractions_for_traveler(traveler):
 
   return interests_string
 
-smills_france = get_attractions_for_traveler(['Dereck Smill', 'Paris, France', ['monument']])
+load_attractions()
 
-print(smills_france)
+# Test traveler here for demonstration purposes. Say the traveler is in LA and likes art.
 
+test_traveler = ['Sam King', 'Los Angeles, USA', ['art']]
+
+print(get_attractions_for_traveler(test_traveler))
